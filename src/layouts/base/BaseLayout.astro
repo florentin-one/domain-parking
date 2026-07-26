@@ -1,5 +1,4 @@
 ---
-import Analytics from "@vercel/analytics/astro";
 import stylesheetUrl from "../../styles/global.css?url";
 import { appearanceConfig, effectsConfig, siteConfig, textmodeConfig } from "../../config";
 import { appearanceCssVariables } from "../../modules/textmode/core/css-vars";
@@ -62,7 +61,6 @@ const particlesEnabled = effectsConfig.particles.enable;
   </head>
   <body data-mobile-fit-breakpoint={mobileFitBreakpoint} data-particles-enabled={particlesEnabled}>
     <slot />
-    <Analytics />
     <script>
       import { installTextmodeBootstrap } from "../../modules/textmode/bootstrap/install";
 

@@ -25,75 +25,90 @@ export type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  name: "Entropic",
-  description: "Security Research Philes",
-  homeAsciiArt: `▓█████  ███▄    █ ▄▄▄█████▓ ██▀███   ▒█████   ██▓███   ██▓ ▄████▄
-▓█   ▀  ██ ▀█   █ ▓  ██▒ ▓▒▓██ ▒ ██▒▒██▒  ██▒▓██░  ██▒▓██▒▒██▀ ▀█
-▒███   ▓██  ▀█ ██▒▒ ▓██░ ▒░▓██ ░▄█ ▒▒██░  ██▒▓██░ ██▓▒▒██▒▒▓█    ▄
-▒▓█  ▄ ▓██▒  ▐▌██▒░ ▓██▓ ░ ▒██▀▀█▄  ▒██   ██░▒██▄█▓▒ ▒░██░▒▓▓▄ ▄██▒
-░▒████▒▒██░   ▓██░  ▒██▒ ░ ░██▓ ▒██▒░ ████▓▒░▒██▒ ░  ░░██░▒ ▓███▀ ░
-░░ ▒░ ░░ ▒░   ▒ ▒   ▒ ░░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ▒▓▒░ ░  ░░▓  ░ ░▒ ▒  ░
- ░ ░  ░░ ░░   ░ ▒░    ░      ░▒ ░ ▒░  ░ ▒ ▒░ ░▒ ░      ▒ ░  ░  ▒
-   ░      ░   ░ ░   ░        ░░   ░ ░ ░ ░ ▒  ░░        ▒ ░░
-   ░  ░         ░             ░         ░ ░            ░  ░ ░
-                                                        ░`,
+  name: "Florentin One",
+  description: "Systems that amplify people, not replace them",
+  homeAsciiArt: `
+  ███████╗██╗      ██████╗ ██████╗ ███████╗███╗   ██╗████████╗██╗███╗   ██╗
+  ██╔════╝██║     ██╔═══██╗██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██║████╗  ██║
+  █████╗  ██║     ██║   ██║██████╔╝█████╗  ██╔██╗ ██║   ██║   ██║██╔██╗ ██║
+  ██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝  ██║╚██╗██║   ██║   ██║██║╚██╗██║
+  ██║     ███████╗╚██████╔╝██║  ██║███████╗██║ ╚████║   ██║   ██║██║ ╚████║
+  ╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝  ╚═══╝
+   ██████╗ ███╗   ██╗███████╗
+  ██╔═══██╗████╗  ██║██╔════╝
+  ██║   ██║██╔██╗ ██║█████╗
+  ██║   ██║██║╚██╗██║██╔══╝
+  ╚██████╔╝██║ ╚████║███████╗
+   ╚═════╝ ╚═╝  ╚═══╝╚══════╝`,
   homeSections: [
     {
-      title: "TL;DR",
+      title: "About",
       items: [
         {
-          label: "Cybersecurity enthusiast. Idealist. Purist."
+          label: "Building systems that amplify people, not replace them"
         },
         {
-          label: "Researcher @RaptX",
-          linkLabel: "@RaptX",
-          href: "https://raptx.org/",
+          label: "Augmentation over automation. Problem-first approach. Reducing cognitive load."
+        },
+        {
+          label:
+            "Strategy consulting, LLMs, and Model Context Protocol development — combined into human-centered systems"
+        }
+      ]
+    },
+    {
+      title: "Domain Status",
+      items: [
+        {
+          label: "This domain is parked and awaiting content"
+        },
+        {
+          label: "Part of the Florentin One ecosystem"
+        }
+      ]
+    },
+    {
+      title: "Resources",
+      items: [
+        {
+          label: "GitHub",
+          href: "https://github.com/florentin-one",
+          external: true,
+          prefix: "~"
+        },
+        {
+          label: "MCP Repository",
+          href: "https://github.com/florentin-one/mcp",
+          external: true,
+          prefix: "~"
+        },
+        {
+          label: "LinkedIn",
+          href: "https://www.linkedin.com/in/heyflorentin/",
+          external: true,
+          prefix: "~"
+        },
+        {
+          label: "WeMake Ethics",
+          href: "https://wemake.cx/legal/ethics/",
+          external: true,
+          prefix: "~"
+        }
+      ]
+    },
+    {
+      title: "Credits",
+      items: [
+        {
+          label: "Developed by Florentin Sakwiset"
+        },
+        {
+          label: "WeMake",
+          href: "https://wemake.cx",
           external: true
         },
-        { label: "My CVEs", href: "/cves/" }
-      ]
-    },
-    {
-      title: "Philes",
-      volumes: {
-        sort: "asc",
-        showEmpty: false
-      }
-    },
-    {
-      title: "Research",
-      items: [
-        { label: "Binary Exploitation" },
-        { label: "Windows Security" },
-        { label: "IoT Security" },
-        { label: "Automation" }
-      ]
-    },
-    {
-      title: "Contact",
-      items: [
-        { label: "root -at- cubeyond -dot- net" },
         {
-          label: "PGP Encryption Key",
-          href: "/key.asc"
-        },
-        {
-          label: "github@plt",
-          href: "https://github.com/CuB3y0nd/",
-          external: true,
-          prefix: "~ call"
-        },
-        {
-          label: "memos@plt",
-          href: "https://memos.cubeyond.net/",
-          external: true,
-          prefix: "~ call"
-        },
-        {
-          label: "kofi@plt",
-          href: "https://ko-fi.com/cub3y0nd",
-          external: true,
-          prefix: "~ call"
+          label: "Built in coherence with EU AI Act and WeMake ethics guidelines"
         }
       ]
     }

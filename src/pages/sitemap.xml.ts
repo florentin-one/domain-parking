@@ -1,14 +1,20 @@
 import type { APIRoute } from "astro";
-import { getAllPhiles } from "../modules/philes/repository";
 import { requireSite, xmlHeaders } from "../modules/seo/http";
-import { renderSitemap, sitemapEntries } from "../modules/seo/xml";
-import { getAllVolumes } from "../modules/volumes/repository";
 
 export const GET: APIRoute = async ({ site }) => {
-  const philes = await getAllPhiles();
-  const volumes = await getAllVolumes(philes);
+  const siteUrl = requireSite(site, "Sitemap");
+  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${new URL("/", siteUrl).toString()}</loc>
+  </url>
+  <url>
+    <loc>${new URL("/rss.xml", siteUrl).toString()}</loc>
+  </url>
+</urlset>
+`;
 
-  return new Response(renderSitemap(requireSite(site, "Sitemap"), sitemapEntries(volumes, philes)), {
+  return new Response(sitemapXml, {
     headers: xmlHeaders("application/xml")
   });
 };

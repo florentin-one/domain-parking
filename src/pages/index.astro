@@ -1,11 +1,8 @@
 ---
 import TextmodeLayout from "../layouts/textmode/TextmodeLayout.astro";
 import HomeScreen from "../components/home/HomeScreen.astro";
-import { getAllVolumes } from "../modules/volumes/repository";
-
-const volumes = await getAllVolumes();
 ---
 
 <TextmodeLayout>
-  <HomeScreen volumes={volumes} />
+  <HomeScreen />
 </TextmodeLayout>
