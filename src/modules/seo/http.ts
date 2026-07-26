@@ -12,3 +12,7 @@ export function xmlHeaders(contentType: "application/rss+xml" | "application/xml
     "Content-Type": `${contentType}; charset=utf-8`
   };
 }
+
+export function absoluteUrl(base: URL, path: string): string {
+  return new URL(path, base).href;
+}

@@ -1,62 +1,24 @@
 ---
 import PreBlock from "../textmode/PreBlock.astro";
 import { siteConfig, type HomeItem, type HomeSection } from "../../config";
-import type { Volume } from "../../modules/volumes/model";
 import { escapeHtml, externalLink, link, textHtml } from "../../modules/textmode/core/html";
 import { cellWidth, wrapWordsCells } from "../../modules/textmode/core/layout";
-import { volumeListLabel } from "../../modules/volumes/labels";
 
-type Props = {
-  volumes: Volume[];
-};
-
-const volumes = Astro.props.volumes;
 const asciiText = siteConfig.homeAsciiArt;
 const homeLineWidth = Math.max(...asciiText.split("\n").map(cellWidth));
-const homeLines = siteConfig.homeSections.flatMap((section) => renderHomeSection(section, volumes));
+const homeLines = siteConfig.homeSections.flatMap(renderHomeSection);
 const homeText = `${homeLines.join("\n")}\n`;
 const asciiHtml = textHtml(asciiText);
 const asciiAttr = escapeHtml(asciiText);
 
-function renderHomeSection(section: HomeSection, allVolumes: Volume[]): string[] {
-  const items = renderHomeItems(section, allVolumes);
-
-  if (items.length === 0 && section.volumes?.showEmpty === false) {
+function renderHomeSection(section: HomeSection): string[] {
+  const items = section.items ?? [];
+  
+  if (items.length === 0) {
     return [];
   }
 
-  return ["", `~ ${section.title}`, ...items];
-}
-
-function renderHomeItems(section: HomeSection, allVolumes: Volume[]): string[] {
-  return [
-    ...renderVolumeItems(section, allVolumes),
-    ...(section.items ?? []).flatMap(renderHomeItem)
-  ];
-}
-
-function renderVolumeItems(section: HomeSection, allVolumes: Volume[]): string[] {
-  if (!section.volumes) {
-    return [];
-  }
-
-  const included = new Set(section.volumes.include);
-  const excluded = new Set(section.volumes.exclude);
-  const filtered = allVolumes
-    .filter((volume) => included.size === 0 || included.has(volume.number))
-    .filter((volume) => !excluded.has(volume.number))
-    .sort((left, right) =>
-      section.volumes?.sort === "desc"
-        ? right.number - left.number
-        : left.number - right.number
-    );
-
-  return filtered.flatMap((volume) =>
-    renderHomeItem({
-      label: volumeListLabel(volume),
-      href: volume.href
-    })
-  );
+  return ["", `~ ${section.title}`, ...items.flatMap(renderHomeItem)];
 }
 
 function renderHomeItem(item: HomeItem): string[] {

@@ -14,17 +14,16 @@
     "dev": "astro dev",
     "build": "pnpm check && astro build",
     "preview": "astro preview",
+    "deploy": "wrangler pages deploy dist",
+    "deploy:preview": "pnpm build && wrangler pages deploy dist",
     "check": "astro check && biome check .",
     "format": "biome format --write .",
-    "lint": "biome lint .",
-    "assets:fonts": "pnpm fonts:subset && pnpm fonts:atlas",
-    "fonts:atlas": "node scripts/build-cjk-atlas.mjs",
-    "fonts:subset": "node scripts/subset-fonts.mjs"
+    "lint": "biome lint ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
+    "@astrojs/cloudflare": "^14.1.4",
     "@chenglou/pretext": "^0.0.7",
-    "@vercel/analytics": "^2.0.1",
     "astro": "^7.1.0",
     "typescript": "^5.8.3",
     "yaml": "^2.9.0"
@@ -33,7 +32,7 @@
     "@biomejs/biome": "^2.4.15",
     "@tailwindcss/vite": "^4.3.0",
     "@types/node": "^25.9.1",
-    "playwright": "^1.60.0",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "wrangler": "^4.114.0"
   }
 }
